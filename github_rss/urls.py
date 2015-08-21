@@ -7,8 +7,8 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'github_rss.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$', 'repo.views.index'),
-    url(r'^repo/', include('repo.urls')),
+    url(r'^$', 'github.views.index'),
+    url(r'^github/', include('github.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
 )

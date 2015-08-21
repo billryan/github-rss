@@ -3,6 +3,6 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('repo.views',
+urlpatterns = patterns('github.views',
     url(r'^$', 'index'),
 )
