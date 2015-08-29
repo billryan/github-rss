@@ -21,9 +21,10 @@ def rss_gen():
         # make RSS output dirs recursively
         rss_root = os.path.join(BASE_DIR, 'output')
         owner_path = os.path.join(rss_root, owner)
-        mkdir_p(owner_path)
+        repo_path = os.path.join(owner_path, repo)
+        mkdir_p(repo_path)
         # generate Atom
-        atom_fn = os.path.join(owner_path, repo + '.xml')
+        atom_fn = os.path.join(repo_path, 'diff.xml')
         atom = Atom()
         atom.gen_atom(repo_info, commits_info, atom_fn)
 

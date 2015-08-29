@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', 'github.views.index'),
     url(r'^github/', include('github.urls')),
+    url(r'^feed/', include('rss_gen.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
 )
