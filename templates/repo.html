@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block repo %}
+    <form action="/github/" method="post">
+    {% csrf_token %}
+        <input type="text" name="raw_url">
+        <input type="submit" value="Repo">
+    </form>
+{% endblock repo %}

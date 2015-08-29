@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+{% if error %}
+    <p>{{ error }}</p>
+{% else %}
+    <p>Your RSS feed is located in <a href="http://{{ request.get_host }}/feed/{{ owner }}/{{ repo }}/diff.xml">http://{{ request.get_host }}/feed/{{ owner }}/{{ repo }}/diff.xml</a></p>
+{% endif %}
+</body>
+</html>

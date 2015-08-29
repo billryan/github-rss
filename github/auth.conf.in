@@ -1,0 +1,5 @@
+# authenticate to increase GitHub API limit
+# copy this file to auth.conf
+[auth]
+user=your_github_username
+passwd=your_github_password
