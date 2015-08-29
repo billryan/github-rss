@@ -44,3 +44,6 @@ github/auth.conf
 
 # SQL
 *.sqlite3
+
+# output
+output

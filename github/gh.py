@@ -41,14 +41,12 @@ class Repo:
         self.auth_url = 'https://api.github.com'
 
     def get_commits(self, s, owner, repo, nums=30):
-        print("get_commits...")
         url = '/'.join([self.auth_url, 'repos', owner, repo, 'commits'])
         commits = s.get(url)
         if commits.status_code == 200:
             return commits.json()
 
     def get_commit_info(self, s, commit_json):
-        print("get_commit_info...")
         commit_info = {}
         # url for get_commit_diff
         commit_info['diff_url'] = commit_json['url']
@@ -66,7 +64,6 @@ class Repo:
         return commit_info
 
     def get_commit_diff(self, s, commit_url):
-        print("get_commit_diff...")
         diff_headers = {'Accept': 'application/vnd.github.diff'}
         commit_diff = s.get(commit_url, headers=diff_headers)
         if commit_diff.status_code == 200:
@@ -97,6 +94,13 @@ class Repo:
         author_info['email'] = author_json['email']
         return author_info
 
+    def get_commits_info(self, s, owner, repo):
+        commits_json = self.get_commits(s, owner, repo)
+        commits_info = []
+        for commit_json in commits_json:
+            commit_info = self.get_commit_info(s, commit_json)
+            commits_info.append(commit_info)
+        return commits_info
 
 class GitHubRSS:
     """GitHub RSS"""

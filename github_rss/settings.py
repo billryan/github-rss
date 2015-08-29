@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'kombu.transport.django',
     'github',
     'celerytask',
+    'rss_gen',
 )
 
 MIDDLEWARE_CLASSES = (
