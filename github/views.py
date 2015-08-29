@@ -20,8 +20,6 @@ def index(request):
             obj.save()
     return HttpResponse("Thanks!")
 
-
-
 def filter_repo_url(raw_url=''):
     pattern = "(?P<host>(git@|https?://)(github.com)(/|:))(?P<owner>[\w,\-,\_]+)/(?P<repo>[\w,\-,\_]+)(.git){0,1}"
     m = re.search(pattern, raw_url)
@@ -30,4 +28,3 @@ def filter_repo_url(raw_url=''):
         repo = m.group('repo')
         repo_url = '/'.join(['https://github.com', owner, repo])
         return {'repo_url': repo_url, 'owner': owner, 'repo': repo}
-

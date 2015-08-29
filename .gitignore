@@ -40,7 +40,7 @@ Session.vim
 
 # Auth
 #############
-github/auth.py
+github/auth.conf
 
 # SQL
 *.sqlite3
