@@ -12,3 +12,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 )
+
+from celerytask.views import Hello
+urlpatterns += patterns('',url(r'^celery/',Hello.as_view()),)

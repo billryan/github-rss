@@ -26,6 +26,14 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import djcelery
+# eager mode
+CELERY_ALWAYS_EAGER = True
+# scheme task
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+djcelery.setup_loader()
+BROKER_URL = 'django://'
 
 # Application definition
 
@@ -36,7 +44,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'south',
+    'djcelery',
+    'kombu.transport.django',
     'github',
+    'celerytask',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,6 +59,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
 
 ROOT_URLCONF = 'github_rss.urls'
 
